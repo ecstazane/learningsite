@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Learning Strategy Assessment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcomeScreen" class="screen active">
+        <div class="welcome-container">
+            <div class="floating-orb orb-1"></div>
+            <div class="floating-orb orb-2"></div>
+            <div class="floating-orb orb-3"></div>
+            
+            <div class="welcome-content">
+                <div class="logo-wrapper">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <h1 class="welcome-title">Discover Your Learning DNA</h1>
+                <p class="welcome-subtitle">An AI-powered journey into your metacognitive, cognitive, and social learning strategies</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon purple">🧠</div>
+                        <h3>Metacognitive</h3>
+                        <p>How you plan and monitor your learning</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon blue">💡</div>
+                        <h3>Cognitive</h3>
+                        <p>How you process information</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon green">👥</div>
+                        <h3>Social</h3>
+                        <p>How you learn with others</p>
+                    </div>
+                </div>
+                
+                <button class="btn-start" onclick="startAssessment()">
+                    <span>Begin Your Journey</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                        <polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="screen">
+        <div class="loading-container">
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <h2 id="loadingTitle">Generating Your Assessment...</h2>
+            <p id="loadingText">Our AI is crafting personalized questions just for you</p>
+        </div>
+    </div>
+
+    <!-- Questions Screen -->
+    <div id="questionsScreen" class="screen">
+        <div class="questions-container">
+            <div class="questions-header">
+                <div class="header-line"></div>
+                <h2>Rate Your Learning Behaviors</h2>
+                <p>Select how often each statement applies to you</p>
+            </div>
+            
+            <div id="questionsList" class="questions-list"></div>
+            
+            <div class="submit-section">
+                <button class="btn-submit" onclick="submitAssessment()" id="submitBtn" disabled>
+                    <span>Generate Analysis</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="resultsScreen" class="screen">
+        <div class="results-container">
+            <div class="results-header">
+                <h2>Your Learning Strategy Profile</h2>
+                <button class="btn-restart" onclick="restartAssessment()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="1 4 1 10 7 10"/>
+                        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                    </svg>
+                    Take Again
+                </button>
+            </div>
+            
+            <!-- Radar Chart -->
+            <div class="chart-section">
+                <h3>Your Learning Strategy Balance</h3>
+                <div class="radar-chart" id="radarChart">
+                    <svg viewBox="0 0 400 400" id="radarSvg"></svg>
+                </div>
+            </div>
+            
+            <!-- Score Cards -->
+            <div class="scores-section" id="scoresSection"></div>
+            
+            <!-- Comparison Chart -->
+            <div class="comparison-section">
+                <h3>Strategy Comparison</h3>
+                <div class="bar-chart" id="barChart"></div>
+            </div>
+            
+            <!-- AI Analysis -->
+            <div class="analysis-section">
+                <h3>AI-Powered Insights</h3>
+                <div class="analysis-content" id="analysisContent"></div>
+            </div>
+            
+            <!-- Recommendations -->
+            <div class="recommendations-section">
+                <h3>Personalized Recommendations</h3>
+                <div id="recommendationsContent" class="recommendations-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
