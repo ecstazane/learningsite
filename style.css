@@ -414,6 +414,8 @@ body {
     mask-composite: exclude;
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none; /* <-- add this line */
+    z-index: 0;
 }
 
 .question-card.answered::after {
