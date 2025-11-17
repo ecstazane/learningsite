@@ -358,8 +358,49 @@ body {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     animation: slideIn 0.6s ease-out backwards;
     position: relative;
+}
+/* 1) Make the hit area larger and consistent */
+.circle-option {
+    flex: 0 0 56px;        /* fixed clickable size */
+    width: 56px;
+    height: 56px;
+    max-width: none;
+    min-width: 0;
+    padding: 0;            /* adjust if you want internal spacing */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;            /* bring above nearby overlays */
+    cursor: pointer;
+}
+
+/* Allow visible focus for keyboard users */
+.circle-option:focus {
+    outline: 3px solid rgba(139,92,246,0.25);
+    outline-offset: 4px;
+}
+
+/* 2) Prevent decorative/overlay pseudo-elements from blocking clicks */
+.circle-option::before,
+.question-card::after,
+.btn-submit::before,
+.floating-orb {
     pointer-events: none;
 }
+
+/* 3) If sticky footer overlaps, keep questions above it */
+.questions-container {
+    position: relative;
+    z-index: 10;
+}
+
+/* make sure sticky submit isn't above the choices */
+.submit-section {
+    z-index: 2;
+}
+
+/* 4) ensure the inner span doesn't steal pointer events (optional) */
+.circle-option span { pointer-events: none; }
 
 .question-card::after {
     content: '';
