@@ -503,7 +503,6 @@ body {
     font-weight: 600;
     color: rgba(255, 255, 255, 0.3);
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -511,16 +510,12 @@ body {
     min-width: 40px;
     position: relative;
     overflow: hidden;
+    transform: none !important;
+    transition: none !important;
 }
 
 .circle-option::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(139, 92, 246, 0.1);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    content: none !important;
 }
 
 .circle-option span {
@@ -529,8 +524,8 @@ body {
 }
 
 .circle-option:hover {
-    transform: scale(1.1);
-    border-color: rgba(139, 92, 246, 0.3);
+    transform: none !important;
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .circle-option:hover::before {
@@ -538,10 +533,11 @@ body {
 }
 
 .circle-option.selected {
-    transform: scale(1.15);
-    border-color: rgba(139, 92, 246, 0.8);
+    border-color: rgba(139, 92, 246, 1);
     color: #fff;
-    animation: selectPulse 0.4s ease;
+    background: rgba(139, 92, 246, 0.2);
+    transform: none !important;
+    animation: none !important;
 }
 
 .circle-option.selected::before {
