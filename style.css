@@ -399,7 +399,7 @@ body {
     z-index: 2;
 }
 
-/* 4) ensure the inner span doesn't steal pointer events (optional) */
+/* 4) ensure the inner span doesn't steal pointer events (optional) a*/
 .circle-option span { pointer-events: none; }
 
 .question-card::after {
